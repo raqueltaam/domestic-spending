@@ -54,7 +54,7 @@ void listarContasExtraordinarias()
     FILE *arquivo;
     char nomearq[] = "ContasExtraordinarias.dat";
 
-    arquivo = fopen(nomearq, "r"); //abrindo o arquivo
+    arquivo = fopen(nomearq, "rb"); //abrindo o arquivo
     if (arquivo != NULL) //verificando se ele abriu 
     {
         mostrarContasExtraordinarias(arquivo); //mostro as contas
@@ -69,7 +69,7 @@ void listarContasRecorrentes()
     FILE *arquivo;
     char nomearq[] = "ContasRecorrentes.dat";
 
-    arquivo = fopen(nomearq, "r");
+    arquivo = fopen(nomearq, "rb");
     if (arquivo != NULL)
     {
         mostrarContasRecorrentes(arquivo);
@@ -84,7 +84,7 @@ void listarContasPeriodicas()
     FILE *arquivo;
     char nomearq[] = "ContasPeriodicas.dat";
 
-    arquivo = fopen(nomearq, "r");
+    arquivo = fopen(nomearq, "rb");
     if (arquivo != NULL)
     {
         mostrarContasPeriodicas(arquivo);
