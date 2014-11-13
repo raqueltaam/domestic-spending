@@ -7,6 +7,7 @@ typedef struct {
 
 typedef struct
 {
+    int ativo;
     int id;
     char nome[50];
     float valor;
@@ -15,6 +16,7 @@ typedef struct
 
 typedef struct
 {
+    int ativo;
     int id;
     char nome[50];
     float valor;
@@ -25,6 +27,7 @@ typedef struct
 
 typedef struct
 {
+    int ativo;
     int id;
     char nome[50];
     float valor;
