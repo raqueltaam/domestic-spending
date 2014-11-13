@@ -141,6 +141,7 @@ void editarPeriodica()
         {
             editarNome(&vetorPeriodica.nome);
             editarValor(&vetorPeriodica.valor);
+            editarVencimento(&vetorPeriodica.data.dia,&vetorPeriodica.data.mes,&vetorPeriodica.data.ano);
             fseek(arq,-1,SEEK_CUT);
             ret = fwrite(vetorPeriodica, sizeof(ContaPeriodica), 1, arq);
         }
