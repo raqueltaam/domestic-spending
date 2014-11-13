@@ -56,7 +56,7 @@ void editarExtra()
             editarNome(&vetorExtra.nome);
             editarValor(&vetorExtra.valor);
             fseek(arq,-1,SEEK_CUT);
-            ret = fwrite(vetorextra, sizeof(ContaExtraordinaria), 1, arq);
+            ret = fwrite(vetorExtra, sizeof(ContaExtraordinaria), 1, arq);
 
         }
         else
@@ -102,7 +102,7 @@ void editarMensal()
             editarParcela(&vetorMensal.parcela);
             editarVencimento(&vetorMensal.data.dia,&vetorMensal.data.mes,&vetorMensal.data.ano);
             fseek(arq,-1,SEEK_CUT);
-            ret = fwrite(vetorextra, sizeof(ContaExtraordinaria), 1, arq);
+            ret = fwrite(vetorMensal, sizeof(ContaMensal), 1, arq);
         }
         else
             printf("Nao foi achado esse ID");
@@ -142,7 +142,7 @@ void editarPeriodica()
             editarNome(&vetorPeriodica.nome);
             editarValor(&vetorPeriodica.valor);
             fseek(arq,-1,SEEK_CUT);
-            ret = fwrite(vetorextra, sizeof(ContaExtraordinaria), 1, arq);
+            ret = fwrite(vetorPeriodica, sizeof(ContaPeriodica), 1, arq);
         }
         else
             printf("Nao foi achado esse ID");
