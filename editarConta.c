@@ -1,37 +1,43 @@
 #include <stdio.h>
 
+void editarVencimento(int *Dia)
+{
+    printf("Entre com novo dia");
+    scanf("%d",Dia);
+
+}
 void editarNome(char *nome[50])
 {
     printf("Entre com novo nome");
-    scanf("%s",conta->nome);
+    gets(nome);
 
 }
 void editarValor(float *valor)
 {
     printf("Entre com novo valor");
-    scanf("%f",&valor);
+    scanf("%f",valor);
 
 }
 void editarParcela(int *parcela)
 {
     printf("Entre com novo numero de parcelas");
-    scanf("%d",&parcela);
+    scanf("%d",parcela);
 }
-void editarVencimento(int *Dia, int *Mes , int *Ano)
+void editarData(int *Dia, int *Mes , int *Ano)
 {
     printf("Entre com novo dia");
-    scanf("%d",&Dia);
-     printf("Entre com novo mes");
-    scanf("%d",&Mes);
-     printf("Entre com novo ano");
-    scanf("%d",&Ano);
+    scanf("%d",Dia);
+    printf("Entre com novo mes");
+    scanf("%d",Mes);
+    printf("Entre com novo ano");
+    scanf("%d",Ano);
 
 }
 
-void editarExtra()
+void editarExtraordinarias()
 {
     int idLido,sair=1,achou=0,ret;
-    ContaExtraordina vetorExtra;
+    ContaExtraordina RegExtradinaria;
     FILE *arq;
     char nomearq[]="ContasExtraordinarias.dat";
 
@@ -41,10 +47,9 @@ void editarExtra()
         printf("Enter com o ID")
         scanf("%d",idLido)
         fseek(arq,0,SEEK_SET)
-        while(arq!=EOF&&sair)
+        while((ret = fread(&RegExtraordinaria, sizeof(ContaExtraordinaria), 1, arq)!=0)&&sair)
         {
-            ret = fread(&vetorExtra, sizeof(ContaExtraordinaria), 1, arq);
-            if(idLido==vetorExtra.id)
+            if(idLido==RegExtraordinaria.id)
             {
                 sair=0;
                 achou=1;
@@ -53,10 +58,11 @@ void editarExtra()
         }
         if(achou)
         {
-            editarNome(&vetorExtra.nome);
-            editarValor(&vetorExtra.valor);
+            editarNome(&RegExtraordinaria.nome);
+            editarValor(&RegExtradinaria.valor);
+            editarData(&RegExtraordinaria.lancamento.dia,&RegExtraordinaria.lancamento.mes,&RegExtraordinaria.lancamento.ano);
             fseek(arq,-1,SEEK_CUT);
-            ret = fwrite(vetorExtra, sizeof(ContaExtraordinaria), 1, arq);
+            ret = fwrite(RegExtraordinaria, sizeof(ContaExtraordinaria), 1, arq);
 
         }
         else
@@ -71,10 +77,10 @@ void editarExtra()
 
 }
 
-void editarMensal()
+void editarRecorrente()
 {
     int idLido,sair=1,achou=0,ret;
-    ContaMensal vetorMensal;
+    ContaMensal RegRecorrente;
     FILE *arq;
     char nomearq[]="ContasMensais.dat";
 
@@ -84,25 +90,24 @@ void editarMensal()
         printf("Enter com o ID")
         scanf("%d",idLido)
         fseek(arq,0,SEEK_SET)
-        while(arq!=EOF&&sair)
+        while((ret = fread(&RegRecorrente, sizeof(ContaRecorrente), 1, arq)!=0)&&sair)
         {
-            arq=arq+sizeof(ContaMensal);
-            ret = fread(&vetorMensal, sizeof(ContaMensal), 1, arq);
-            if(idLido==vetorMensal.id)
+            if(idLido==RegRecorrente.id)
             {
                 sair=0;
-                achou=1
+                achou=1;
             }
 
         }
         if(achou)
         {
-            editarNome(&vetorMensal.nome);
-            editarValor(&vetorMensal.valor);
-            editarParcela(&vetorMensal.parcela);
-            editarVencimento(&vetorMensal.data.dia,&vetorMensal.data.mes,&vetorMensal.data.ano);
+            editarNome(&RegRecorrente.nome);
+            editarValor(&RegRecorrente.valor);
+            editarParcela(&RegRecorrente.parcela);
+            editarVencimento(&RegRecorrente.diaVencimento);
+            editarData(&RegRecorrente.lancamento.dia,&RegRecorrente.lancamento.mes,&RegRecorrente.lancamento.ano);
             fseek(arq,-1,SEEK_CUT);
-            ret = fwrite(vetorMensal, sizeof(ContaMensal), 1, arq);
+            ret = fwrite(RegRecorrente, sizeof(ContaRecorrente), 1, arq);
         }
         else
             printf("Nao foi achado esse ID");
@@ -116,7 +121,7 @@ void editarMensal()
 void editarPeriodica()
 {
     int idLido,sair=1,achou=0,ret;
-    ContaPeriodica vetorPeriodica;
+    ContaPeriodica RegPeriodica;
     FILE *arq;
     char nomearq[]="ContasPeridocas.dat";
 
@@ -126,24 +131,22 @@ void editarPeriodica()
         printf("Enter com o ID")
         scanf("%d",idLido)
         fseek(arq,0,SEEK_SET)
-        while(arq!=EOF&&sair)
+        while((ret = fread(&RegPeriodica, sizeof(ContaPeriodica), 1, arq)!=0)&&sair)
         {
-            arq=arq+sizeof(ContaPeriodica);
-            ret = fread(&vetorPeriodica, sizeof(ContaPeriodica), 1, arq);
-            if(idLido==vetorPeriodica.id)
+            if(idLido==RegPeriodica.id)
             {
                 sair=0;
-                achou=1
+                achou=1;
             }
 
         }
         if(achou)
         {
-            editarNome(&vetorPeriodica.nome);
-            editarValor(&vetorPeriodica.valor);
-            editarVencimento(&vetorPeriodica.data.dia,&vetorPeriodica.data.mes,&vetorPeriodica.data.ano);
+            editarNome(&RegPeriodica.nome);
+            editarValor(&RegPeriodica.valor);
+            editarData(&RegPeriodica.vencimento.dia,&RegPeriodica.vencimento.mes,&RegPeriodica.vencimento.ano);
             fseek(arq,-1,SEEK_CUT);
-            ret = fwrite(vetorPeriodica, sizeof(ContaPeriodica), 1, arq);
+            ret = fwrite(RegPeriodica, sizeof(ContaPeriodica), 1, arq);
         }
         else
             printf("Nao foi achado esse ID");
@@ -165,7 +168,7 @@ void editarConta()
     switch (numLido)
     {
     case 1:
-        editarExtra();break;
+        editarExtraordinarias();break;
     case 2:
         editarMensal();break;
     case 3:
