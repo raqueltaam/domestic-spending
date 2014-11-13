@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void editarNome(char *nome[20])
+void editarNome(char *nome[50])
 {
     printf("Entre com novo nome");
     scanf("%s",conta->nome);
