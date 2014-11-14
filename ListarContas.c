@@ -11,7 +11,7 @@ void mostrarContasExtraordinarias (FILE *arq)
 
     while (fread(&conta, sizeof(ContaExtraordinaria), 1, arq) != fim) //lendo arquivo e printando na tela 
     {
-        if ((conta.ativo == 1)  && (conta.pago == 1))//so ta mostrando as contas ativas e pagas
+        if ((conta.ativo == 1)  && (conta.pago == 0))//so ta mostrando as contas ativas e pagas
         {
             printf("\nConta Extraordinaria");
             printf("\nID: %d", conta.id);
@@ -30,7 +30,7 @@ void mostrarContasRecorrentes (FILE *arq)
 
     while (fread(&conta, sizeof(ContaRecorrente), 1, arq) != fim)
     {
-        if ((conta.ativo == 1)  && (conta.pago == 1))
+        if ((conta.ativo == 1)  && (conta.pago == 0))
         {
             printf("\nConta Recorrente");
             printf("\nID: %d", conta.id);
@@ -51,7 +51,7 @@ void mostrarContasPeriodicas(FILE *arq)
 
     while (fread(&conta, sizeof(ContaPeriodica), 1, arq) != fim)
     {
-        if ((conta.ativo == 1)  && (conta.pago == 1))
+        if ((conta.ativo == 1)  && (conta.pago == 0))
         {
             printf("\nConta Periodica");
             printf("\nID: %d", conta.id);
