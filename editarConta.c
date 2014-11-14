@@ -37,7 +37,7 @@ void editarData(int *Dia, int *Mes , int *Ano)
 void editarExtraordinarias()
 {
     int idLido,sair=1,achou=0,ret;
-    ContaExtraordina RegExtradinaria;
+    ContaExtraordina RegExtraordinaria;
     FILE *arq;
     char nomearq[]="ContasExtraordinarias.dat";
 
@@ -63,13 +63,12 @@ void editarExtraordinarias()
             editarData(&RegExtraordinaria.lancamento.dia,&RegExtraordinaria.lancamento.mes,&RegExtraordinaria.lancamento.ano);
             fseek(arq,-1,SEEK_CUT);
             ret = fwrite(RegExtraordinaria, sizeof(ContaExtraordinaria), 1, arq);
+            fclose(arq);
 
         }
         else
             printf("Nao foi achado esse ID");
 
-
-        printf("Abriu");
     }
     else
         printf("Erro em abrir o arquivo");
@@ -80,7 +79,7 @@ void editarExtraordinarias()
 void editarRecorrente()
 {
     int idLido,sair=1,achou=0,ret;
-    ContaMensal RegRecorrente;
+    ContaRecorrente RegRecorrente;
     FILE *arq;
     char nomearq[]="ContasMensais.dat";
 
@@ -108,11 +107,11 @@ void editarRecorrente()
             editarData(&RegRecorrente.lancamento.dia,&RegRecorrente.lancamento.mes,&RegRecorrente.lancamento.ano);
             fseek(arq,-1,SEEK_CUT);
             ret = fwrite(RegRecorrente, sizeof(ContaRecorrente), 1, arq);
+            fclose(arq);
         }
         else
             printf("Nao foi achado esse ID");
 
-        printf("Abriu");
     }
     else
         printf("Erro em abrir o arquivo");
@@ -147,12 +146,12 @@ void editarPeriodica()
             editarData(&RegPeriodica.vencimento.dia,&RegPeriodica.vencimento.mes,&RegPeriodica.vencimento.ano);
             fseek(arq,-1,SEEK_CUT);
             ret = fwrite(RegPeriodica, sizeof(ContaPeriodica), 1, arq);
+            fclose(arq);
         }
         else
             printf("Nao foi achado esse ID");
 
 
-        printf("Abriu");
     }
     else
         printf("Erro em abrir o arquivo");
@@ -181,5 +180,8 @@ void editarConta()
 
 main()
 {
+    int op;
     editarConta();
+    op = mostrarMenu();//voltar menu
+    exercutarOperacao(op);
 }
