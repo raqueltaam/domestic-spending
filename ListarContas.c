@@ -3,6 +3,7 @@
 
 const int fim = 0;
 enum contas {contasExtraordinarias = 1, contasRecorrentes, contasPeriodicas};
+enum tipo {atvivo = 1};
 //estou mostrando todas as contas extraordinarias
 void mostrarContasExtraordinarias (FILE *arq)
 {
@@ -11,10 +12,14 @@ void mostrarContasExtraordinarias (FILE *arq)
 
     while (fread(&conta, sizeof(ContaExtraordinaria), 1, arq) != fim) //lendo aruivo e printando na tela 
     {
-        printf("\nConta Extraordinaria");
-        printf("\nID: %d", conta.id);
-        printf("\nTitulo: %s", conta.nome);
-        printf("\nValor da conta: %.2f\n", conta.valor);
+        if (conta.ativo == ativo) //estou printando so as contas que não foram excluidas
+        {
+            printf("\nConta Extraordinaria");
+            printf("\nID: %d", conta.id);
+            printf("\nTitulo: %s", conta.nome);
+            printf("\nValor da conta: %.2f\n", conta.valor);
+            printf("\nData de Lançamento: %d/%d/%d\n", conta.lancamento.dia, conta.lancamento.mes, conta.lancamento.ano);
+        }
     }
 }
 
@@ -26,28 +31,35 @@ void mostrarContasRecorrentes (FILE *arq)
 
     while (fread(&conta, sizeof(ContaRecorrente), 1, arq) != fim)
     {
-        printf("\nConta Recorrente");
-        printf("\nID: %d", conta.id);
-        printf("\nTitulo: %s", conta.nome);
-        printf("\nValor da conta: %.2f", conta.valor);
-        printf("\nNumero de parcelas: %d", conta.parcelas);
-        printf("\nData de vencimento: %d/%d/%d\n", conta.vencimento.dia, conta.vencimento.mes, conta.vencimento.ano)
+        if (conta.ativo == ativo)
+        {
+            printf("\nConta Recorrente");
+            printf("\nID: %d", conta.id);
+            printf("\nTitulo: %s", conta.nome);
+            printf("\nValor da conta: %.2f", conta.valor);
+            printf("\nNumero de parcelas: %d", conta.parcelas);
+            printf("\nDia de vencimento: %d", conta.diaVencomento);
+            printf("\nData de Lançamento: %d/%d/%d\n", conta.lancamento.dia, conta.lancamento.mes, conta.lancamento.ano);   
+        }
     }
 }
 
-//estou mostrando todas as contas recorrentes
-void listarContasPeriodicas(FILE *arq)
+//estou mostrando todas as contas periodicas
+void mostrarContasPeriodicas(FILE *arq)
 {
     ContaPeriodica conta;
     rewind(arq);
 
     while (fread(&conta, sizeof(ContaPeriodica), 1, arq) != fim)
     {
-        printf("\nConta Periodica");
-        printf("\nID: %d", conta.id);
-        printf("\nTitulo: %s", conta.nome);
-        printf("\nValor da conta: %.2f", conta.valor);
-        printf("\nData de vencimento: %d/%d/%d\n", conta.vencimento.dia, conta.vencimento.mes, conta.vencimento.ano)
+        if (conta.ativo == ativo)
+        {
+            printf("\nConta Periodica");
+            printf("\nID: %d", conta.id);
+            printf("\nTitulo: %s", conta.nome);
+            printf("\nValor da conta: %.2f", conta.valor);
+            printf("\nData de vencimento: %d/%d/%d\n", conta.lancamento.dia, conta.lancamento.mes, conta.lancamento.ano);
+        }
     }
 }
 
@@ -128,9 +140,4 @@ void listarContas()
                 printf("\n\nOpcao Invalida!\n\n");
     } while (menu != fim)
     mostrarMenu(); //voltando para o menu inicial 
-}
-
-main ()
-{
-    listarContas();
 }
