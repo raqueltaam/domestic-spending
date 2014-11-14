@@ -18,10 +18,9 @@ Como iniciar e utilizar o programa
 Para usar o programa inicie o arquivo .exe e siga as instruções dadas pelo proprio
 programa para manter contas em suas devidas formas. As informações e instruçoes
 dadas pelo proprio programa devem ser suficientes para a correta utilização do mesmo.
--------------------------------------------------------------------------------------
 
 Dispesas Domesticas pode ser alcançado em:
-==========================================
+-------------------------------------------
 - Bernardo V. Nogueira - bernardo.nogueira@al.infnet.edu.br
 - Vinicius Viana - vinicius.viana@al.infnet.edu.br
 
