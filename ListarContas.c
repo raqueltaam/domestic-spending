@@ -3,16 +3,15 @@
 
 const int fim = 0;
 enum contas {contasExtraordinarias = 1, contasRecorrentes, contasPeriodicas};
-//enum tipo {atvivo = 1};
 //estou mostrando todas as contas extraordinarias
 void mostrarContasExtraordinarias (FILE *arq)
 {
     ContaExtraordinaria conta;
     rewind(arq); //colocando o ponteiro do arquivo no inicio do arquivo
 
-    while (fread(&conta, sizeof(ContaExtraordinaria), 1, arq) != fim) //lendo aruivo e printando na tela 
+    while (fread(&conta, sizeof(ContaExtraordinaria), 1, arq) != fim) //lendo arquivo e printando na tela 
     {
-        if (conta.ativo == 0) //estou mostrando as contas que não foram pagas
+        if ((conta.ativo == 1)  && (conta.pago == 1))//so ta mostrando as contas ativas e pagas
         {
             printf("\nConta Extraordinaria");
             printf("\nID: %d", conta.id);
@@ -31,7 +30,7 @@ void mostrarContasRecorrentes (FILE *arq)
 
     while (fread(&conta, sizeof(ContaRecorrente), 1, arq) != fim)
     {
-        if (conta.ativo == 0)
+        if ((conta.ativo == 1)  && (conta.pago == 1))
         {
             printf("\nConta Recorrente");
             printf("\nID: %d", conta.id);
@@ -52,7 +51,7 @@ void mostrarContasPeriodicas(FILE *arq)
 
     while (fread(&conta, sizeof(ContaPeriodica), 1, arq) != fim)
     {
-        if (conta.ativo == 0)
+        if ((conta.ativo == 1)  && (conta.pago == 1))
         {
             printf("\nConta Periodica");
             printf("\nID: %d", conta.id);
