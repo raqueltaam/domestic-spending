@@ -23,5 +23,6 @@ mesmo.
 
 Dispesas Domesticas pode ser alcançado em:
 
-Bernardo V. Nogueira - bernardo.nogueira@infnet.al.edu
+Bernardo V. Nogueira - bernardo.nogueira@al.infnet.edu.br
+Vinicius Viana - vinicius.viana@al.infnet.edu.br
 
