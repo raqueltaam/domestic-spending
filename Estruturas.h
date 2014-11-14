@@ -7,6 +7,7 @@ typedef struct {
 
 typedef struct
 {
+    int pago;
     int ativo;
     int id;
     char nome[50];
@@ -16,6 +17,7 @@ typedef struct
 
 typedef struct
 {
+    int pago;
     int ativo;
     int id;
     char nome[50];
@@ -27,6 +29,7 @@ typedef struct
 
 typedef struct
 {
+    int pago;
     int ativo;
     int id;
     char nome[50];
