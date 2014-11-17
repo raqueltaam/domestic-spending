@@ -31,5 +31,6 @@ Dispesas Domesticas pode ser alcançado em:
 -------------------------------------------
 - Bernardo V. Nogueira - bernardo.nogueira@al.infnet.edu.br
 - Gustavo Tavares - gustavo.cardoso@al.infnet.edu.br
+- Raquel Taam S. M. Monteiro - raqueltsmm@gmail.com / raquel.monteiro@al.infnet.edu.br
 - Vinicius Viana - vinicius.viana@al.infnet.edu.br
 
