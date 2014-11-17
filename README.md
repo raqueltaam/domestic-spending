@@ -1,4 +1,4 @@
-Dispesas Domesticas  Versão 1.0 14/11/14
+Despesas Domesticas  Versão 1.0 14/11/14
 Trabalho de GEC5 para o professor Rafael Pinho
 
 Descrição
