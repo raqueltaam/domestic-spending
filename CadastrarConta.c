@@ -54,6 +54,8 @@ int gerarIdPeriodica(FILE * arquivo)
 //Le a estrutura da conta extraordinaria
 void lerContaExtraordinaria(ContaExtraordinaria * c, FILE * arquivo)
 {
+    c->pago = 0;
+    c->ativo = 1;
     c->id = gerarIdExtraordinaria(arquivo);
     printf("Digite o titulo: ");
     fflush(stdin);
@@ -67,6 +69,8 @@ void lerContaExtraordinaria(ContaExtraordinaria * c, FILE * arquivo)
 
 void lerContaRecorrente(ContaRecorrente * c, FILE * arquivo)
 {
+    c->pago = 0;
+    c->ativo = 1;
     c->id = gerarIdRecorrente(arquivo);
     printf("Digite o titulo: ");
     fflush(stdin);
@@ -83,6 +87,8 @@ void lerContaRecorrente(ContaRecorrente * c, FILE * arquivo)
 
 void lerContaPeriodica(ContaPeriodica * c, FILE * arquivo)
 {
+    c->pago = 0;
+    c->ativo = 1;
     c->id = gerarIdPeriodica(arquivo);
     printf("Digite o titulo: ");
     fflush(stdin);
