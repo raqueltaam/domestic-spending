@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void deletarConta(int *status)
+void deletarConta(int *status) // muda o status da conta
 {
     int num;
     printf("Gostaria de deletar mesmo a conta\n");
@@ -21,7 +21,7 @@ void deletarConta(int *status)
 
 
 
-void deletarExtraordinarias()
+void deletarExtraordinarias() // deleta as contas extraordinarias
 {
     int idLido,sair=1,achou=0,ret;
     ContaExtraordina RegExtraordinaria;
@@ -62,7 +62,7 @@ void deletarExtraordinarias()
 
 }
 
-void deletarRecorrente()
+void deletarRecorrente()  // deleta as contas recorrentes
 {
     int idLido,sair=1,achou=0,ret;
     ContaRecorrente RegRecorrente;
@@ -99,7 +99,7 @@ void deletarRecorrente()
         printf("Erro em abrir o arquivo");
 }
 
-void deletarPeriodica()
+void deletarPeriodica() // deleta as contas periodicas
 {
     int idLido,sair=1,achou=0,ret;
     ContaPeriodica RegPeriodica;
@@ -137,7 +137,7 @@ void deletarPeriodica()
         printf("Erro em abrir o arquivo");
 }
 
-void deletarConta()
+void deletarConta() // inicia o processo de deletar conta
 {
     int numLido;
 
