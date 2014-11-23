@@ -1,29 +1,29 @@
 #include <stdio.h>
 
-void editarVencimento(int *Dia)
+void editarVencimento(int *Dia) // edita o vencimento da conta
 {
     printf("Entre com novo dia");
     scanf("%d",Dia);
 
 }
-void editarNome(char *nome[50])
+void editarNome(char *nome[50]) //edita o nome da conta
 {
     printf("Entre com novo nome");
     gets(nome);
 
 }
-void editarValor(float *valor)
+void editarValor(float *valor) // edita o valor da conta
 {
     printf("Entre com novo valor");
     scanf("%f",valor);
 
 }
-void editarParcela(int *parcela)
+void editarParcela(int *parcela) // edita a parcela da conta
 {
     printf("Entre com novo numero de parcelas");
     scanf("%d",parcela);
 }
-void editarData(int *Dia, int *Mes , int *Ano)
+void editarData(int *Dia, int *Mes , int *Ano) // edita a data da conta
 {
     printf("Entre com novo dia");
     scanf("%d",Dia);
@@ -34,7 +34,7 @@ void editarData(int *Dia, int *Mes , int *Ano)
 
 }
 
-void editarExtraordinarias()
+void editarExtraordinarias() // edita as contas extraordinarias
 {
     int idLido,sair=1,achou=0,ret;
     ContaExtraordina RegExtraordinaria;
@@ -76,7 +76,7 @@ void editarExtraordinarias()
 
 }
 
-void editarRecorrente()
+void editarRecorrente() // edita as contas recorrentes
 {
     int idLido,sair=1,achou=0,ret;
     ContaRecorrente RegRecorrente;
@@ -117,7 +117,7 @@ void editarRecorrente()
         printf("Erro em abrir o arquivo");
 }
 
-void editarPeriodica()
+void editarPeriodica() // edita as contas periodicas
 {
     int idLido,sair=1,achou=0,ret;
     ContaPeriodica RegPeriodica;
@@ -157,7 +157,7 @@ void editarPeriodica()
         printf("Erro em abrir o arquivo");
 }
 
-void editarConta()
+void editarConta() // inicia o processo de editar conta
 {
     int numLido;
 
